@@ -1,0 +1,8 @@
+# Минимальный стек для работы
+Django==4.2.7
+psycopg2-binary==2.9.9
+pandas==2.1.4
+openpyxl==3.1.2
+reportlab==4.0.5
+pydantic==2.5.0
+python-dotenv==1.0.0
