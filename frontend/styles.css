@@ -1,0 +1,326 @@
+/**
+ * Кастомные стили: Система управления продажами автомобилей
+ * Цветовая схема: автомобильная тематика (тёмно-синий, серый, белый, оранжевый акцент)
+ */
+
+/* --- CSS переменные --- */
+:root {
+  --color-primary: #1a365d;
+  --color-primary-light: #2c5282;
+  --color-primary-dark: #0f2744;
+  --color-gray: #4a5568;
+  --color-gray-light: #718096;
+  --color-gray-bg: #f7fafc;
+  --color-white: #ffffff;
+  --color-accent: #dd6b20;
+  --color-accent-hover: #c05621;
+  --color-accent-light: #fbd38d;
+  --color-success: #38a169;
+  --color-danger: #e53e3e;
+  --color-info: #3182ce;
+  --color-warning: #d69e2e;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --radius: 0.375rem;
+  --radius-lg: 0.5rem;
+  --transition: 0.2s ease;
+}
+
+/* --- Базовые стили --- */
+body {
+  background-color: var(--color-gray-bg);
+  color: var(--color-primary-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- Шапка --- */
+header {
+  background-color: var(--color-primary) !important;
+  border-bottom: 3px solid var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+header .container {
+  font-weight: 600;
+}
+
+/* --- Навигация (вкладки) --- */
+#mainTabs .nav-link {
+  color: var(--color-gray);
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  transition: color var(--transition), border-color var(--transition), background-color var(--transition);
+}
+
+#mainTabs .nav-link:hover {
+  color: var(--color-primary);
+  background-color: rgba(26, 54, 93, 0.06);
+}
+
+#mainTabs .nav-link.active {
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  border-bottom-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 767.98px) {
+  #mainTabs .nav-link {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Контент вкладок --- */
+.tab-content {
+  background-color: var(--color-white);
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 767.98px) {
+  .tab-content {
+    padding: 1rem;
+  }
+}
+
+/* --- Карточки --- */
+.card {
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+}
+
+.card-header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+/* --- Таблицы --- */
+.table {
+  --bs-table-striped-bg: rgba(26, 54, 93, 0.04);
+}
+
+.table thead th {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  font-weight: 600;
+  border: none;
+  padding: 0.75rem;
+}
+
+.table tbody tr {
+  transition: background-color var(--transition);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(221, 107, 32, 0.06);
+}
+
+.table-responsive {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+@media (max-width: 767.98px) {
+  .table thead th,
+  .table tbody td {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* --- Формы --- */
+.form-label {
+  font-weight: 500;
+  color: var(--color-gray);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.2rem rgba(221, 107, 32, 0.25);
+}
+
+.form-control,
+.form-select {
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+/* --- Кнопки --- */
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  transition: background-color var(--transition), transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+  transition: background-color var(--transition), transform 0.1s ease;
+}
+
+.btn-success:hover {
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transition: all var(--transition);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* --- Статус-бейджи --- */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.status-stock,
+[data-status="на складе"] .status-badge {
+  background-color: rgba(56, 161, 105, 0.2);
+  color: var(--color-success);
+}
+
+.status-sold,
+[data-status="продан"] .status-badge {
+  background-color: rgba(229, 62, 62, 0.2);
+  color: var(--color-danger);
+}
+
+.status-demo,
+[data-status="в демозале"] .status-badge {
+  background-color: rgba(49, 130, 206, 0.2);
+  color: var(--color-info);
+}
+
+.status-service,
+[data-status="на сервисе"] .status-badge {
+  background-color: rgba(214, 158, 46, 0.25);
+  color: #b7791f;
+}
+
+/* --- Область drag-and-drop --- */
+#dropZone {
+  border-style: dashed !important;
+  border-color: var(--color-gray-light) !important;
+  transition: background-color var(--transition), border-color var(--transition);
+  cursor: pointer;
+}
+
+#dropZone:hover {
+  background-color: rgba(26, 54, 93, 0.04) !important;
+  border-color: var(--color-primary) !important;
+}
+
+#dropZone.drag-over {
+  background-color: rgba(221, 107, 32, 0.1) !important;
+  border-color: var(--color-accent) !important;
+  border-width: 3px !important;
+}
+
+@media (max-width: 767.98px) {
+  #dropZone {
+    padding: 2rem 1rem !important;
+  }
+}
+
+/* --- Модальные окна --- */
+.modal-content {
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 1rem 1.25rem;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+.modal-body {
+  padding: 1.25rem;
+}
+
+.modal-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 1rem 1.25rem;
+}
+
+/* --- Блок отчёта --- */
+#reportOutput {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* --- Результат загрузки --- */
+#uploadResult .alert {
+  border-radius: var(--radius);
+}
+
+/* --- Анимации --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tab-pane.active {
+  animation: fadeIn 0.2s ease;
+}
+
+/* --- Утилиты --- */
+.text-price {
+  font-variant-numeric: tabular-nums;
+}
